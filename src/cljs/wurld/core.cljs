@@ -1,10 +1,33 @@
 (ns wurld.core
-    (:require [reagent.core :as reagent]))
+  (:require [reagent.core :as reagent :refer [atom]]
+            [wurld.util :refer [get-possible-urls]]))
 
-(defonce app-state (reagent/atom {:text "Hello, what is your name? "}))
+
+
+
+;; This handy funtcion is apdapted from the Reagent website (https://reagent-project.github.io/)
+(defn lister [items]
+  [:ul
+   (for [item items]
+     ^{:key item} [:li item])])
+
+
+;; This code is adapted from the textbox example given at https://reagent-project.github.io/
+(defn input-component
+  "Text box to enter word. Triggers url search"
+  [value]
+  [:input
+   {:type "text"
+    :value @value
+    :on-change #(reset! value (-> % .-target .-value))}])
 
 (defn page []
-  [:div (@app-state :text) "FIXME"])
+  (let [value (atom "clojure")]
+    (fn []
+      [:div
+        [:p "Enter a word: " [input-component value]]
+        [:div "Possible URLs:" [lister (get-possible-urls @value)]]])))
+
 
 (defn ^:export main []
   (reagent/render [page]
