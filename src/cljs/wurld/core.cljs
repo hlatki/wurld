@@ -3,6 +3,9 @@
             [wurld.util :refer [get-possible-urls]]))
 
 
+(def title-text "Hello, Wurld!")
+(def sub-title-text "Because .com's are for your grandpa, brah")
+(def marketing-nonesense "Wurld helps you figure out what kind of cool single word URL's you can make from your #brand. For instance, say you're Nautical Inc. Wurld will tell you that your new home could be nautic.al or nauti.cal like you're a hot new startup and not a 150 year old purveyor of sailcloth.")
 
 
 ;; This handy funtcion is apdapted from the Reagent website (https://reagent-project.github.io/)
@@ -16,17 +19,26 @@
 (defn input-component
   "Text box to enter word. Triggers url search"
   [value]
-  [:input
-   {:type "text"
-    :value @value
-    :on-change #(reset! value (-> % .-target .-value))}])
+  [:div {:class "form-group"}
+    [:input
+     {:type "text"
+      :class "form-control input-lg"
+      :placeholder "What's your brand?"
+      :value @value
+      :on-change #(reset! value (-> % .-target .-value))}]])
 
 (defn page []
-  (let [value (atom "clojure")]
+  (let [value (atom "")]
     (fn []
-      [:div
-        [:p "Enter a word: " [input-component value]]
-        [:div "Possible URLs:" [lister (get-possible-urls @value)]]])))
+      [:div {:class "container"}
+        [:div
+         {:class "jumbotron"}
+         [:h1 title-text]
+         [:h2 sub-title-text]
+         [:p marketing-nonesense]]
+        [:div
+         [:p [input-component value]]
+         [:div "Possible URLs:" [lister (get-possible-urls @value)]]]])))
 
 
 (defn ^:export main []
