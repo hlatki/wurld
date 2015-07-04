@@ -18,6 +18,8 @@
   [value]
   [:input
    {:type "text"
+    :class "form-control input-lg"
+    :placeholder "What's your brand?"
     :value @value
     :on-change #(reset! value (-> % .-target .-value))}])
 
