@@ -3,9 +3,9 @@
             [wurld.util :refer [get-possible-urls]]))
 
 
-(def title-text "Hello, Wurld!")
+(def title-text "Hello, wURLd!")
 (def sub-title-text "Because .com's are for your grandpa, brah")
-(def marketing-nonesense "Wurld helps you figure out what kind of cool single word URL's you can make from your #brand. For instance, say you're Nautical Inc. Wurld will tell you that your new home could be nautic.al or nauti.cal like you're a hot new startup and not a 150 year old purveyor of sailcloth.")
+(def marketing-nonesense "wURLd helps you figure out what kind of cool single word URL's you can make from your #brand. Say you're Nautical Inc; wURLd will tell you that your new home could be nautic.al or nauti.cal. Boom! Just like that you're a hot new startup and not just a 150 year-old purveyor of sailcloth or whatever.")
 
 
 (def input-word (atom ""))
