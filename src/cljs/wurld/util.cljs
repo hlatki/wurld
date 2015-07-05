@@ -2,7 +2,7 @@
   (:require wurld.tlds))
 
 
-(defn build-url
+(defn build-domain
   "Create URL by inserting . between name and TLD, given location of split"
   [s i]
   (str (subs s 0 i) "." (subs s i)))
@@ -13,11 +13,11 @@
   [s pos]
   (let [tld (subs s pos)]
     (if (contains? wurld.tlds/tld-set tld)
-      (build-url s pos)
+      (build-domain s pos)
       false)))
 
 ;;TODO: clean this function up a little
-(defn get-possible-urls
+(defn get-possible-domains
   "Get possible urls from word"
   [word]
   (loop [pos (dec (count word))

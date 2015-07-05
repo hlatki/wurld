@@ -2,6 +2,12 @@
 
 Wurld is a webapp built with ClojureScript and Reagent that lets you check if your word, brand, or phrase could be one of those clever domain names like bit.ly where the TLD is actually part of the word.
 
+## Deploy code
+The deploy.sh script will update the gh-pages branch of this repo
+
+```
+./deploy.sh
+```
 
 ## Development Mode
 

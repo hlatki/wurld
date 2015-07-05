@@ -1,11 +1,11 @@
 (ns wurld.core
   (:require [reagent.core :as reagent :refer [atom]]
-            [wurld.util :refer [get-possible-urls]]))
+            [wurld.util :refer [get-possible-domains]]))
 
 
 (def title-text "Hello, wURLd!")
 (def sub-title-text "Because .com's are for your grandpa, brah")
-(def marketing-nonesense "wURLd helps you figure out what kind of cool single word URL's you can make from your #brand. Say you're Nautical Inc; wURLd will tell you that your new home could be nautic.al or nauti.cal. Boom! Just like that you're a hot new startup and not just a 150 year-old purveyor of sailcloth or whatever.")
+(def marketing-nonesense "wURLd helps you figure out what kind of cool single word domains you can make from your #brand. Say you're Nautical Inc; wURLd will tell you that your new home could be nautic.al or nauti.cal. Boom! Just like that you're a hot new startup and not just a 150 year-old purveyor of sailcloth or whatever.")
 
 
 (def input-word (atom ""))
@@ -51,7 +51,7 @@
          [:p marketing-nonesense]]
         [:div
          [:p [input-component ""]]
-         [:div "Possible URLs:" [update-possibilities (get-possible-urls @input-word)]]]]))
+         [:div "Possible URLs:" [update-possibilities (get-possible-domains @input-word)]]]]))
 
 
 (defn ^:export main []
