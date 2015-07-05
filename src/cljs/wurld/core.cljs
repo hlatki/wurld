@@ -29,13 +29,14 @@
 (defn page []
   (let [value (atom "clojure")]
     (fn []
-      [:div
-       {:class "jumbotron"}
-       [:h1 title-text]
-       [:h2 sub-title-text]
-       [:p marketing-nonesense]
-        [:p "Enter a word: " [input-component value]]
-        [:div "Possible URLs:" [lister (get-possible-urls @value)]]])))
+      [:div {:class "container"}
+        [:div
+         {:class "jumbotron"}
+         [:h1 title-text]
+         [:h2 sub-title-text]
+         [:p marketing-nonesense]
+         [:p "Enter a word: " [input-component value]]
+         [:div "Possible URLs:" [lister (get-possible-urls @value)]]]])))
 
 
 (defn ^:export main []
